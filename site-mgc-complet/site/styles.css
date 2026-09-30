@@ -1187,6 +1187,11 @@ html{ scroll-behavior: auto; }
   border-bottom: 1px solid var(--line);
   scroll-margin-top: 24px;
 }
+#page-legal .dp-block{ margin:28px 0 8px; padding:22px 24px; border:1px solid var(--line); border-left:3px solid var(--signal); }
+#page-legal .dp-block h3{ font-size:16px; font-weight:700; margin:0 0 10px; }
+#page-legal .dp-block p{ margin:0 0 10px; }
+#page-legal .dp-contact{ margin-top:14px; padding-top:14px; border-top:1px solid var(--line); font-size:14.5px; }
+#page-legal .dp-contact a{ font-family:var(--font-mono); font-weight:500; word-break:break-all; }
 #page-404 main{
   min-height: calc(100vh - 210px);
   display: flex;
