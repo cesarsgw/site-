@@ -34,7 +34,8 @@ except Exception:
     fail("reseau")
 
 print("--- apercu flux (5 premieres lignes) ---")
-print("\n".join(raw.splitlines()[:5])[:1500])
+_l = raw.splitlines()
+print("\n".join([x for x in _l if x.startswith("#")][-6:] + [x for x in _l if not x.startswith("#")][:4])[:2500])
 rows = [r for r in csv.reader(io.StringIO("\n".join(l for l in raw.splitlines() if l and not l.startswith("#")))) if r]
 if not rows:
     fail("flux_vide")
