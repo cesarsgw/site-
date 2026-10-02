@@ -63,7 +63,7 @@ Header du site : « MENACES ACTIVES · FR  1 234 »
    - Valeur : la clé
 3. **Fusionner dans `main`** : GitHub n'exécute les tâches planifiées que sur la branche par défaut.
 4. **Premier lancement** : onglet *Actions* → « Compteur menaces (URLhaus FR) » → *Run workflow*.
-5. **Vérifier** : https://raw.githubusercontent.com/cesarsgw/SITE-PRINCIPALE/data/cyber-counter.json doit contenir `"ok": true`.
+5. **Vérifier** : https://raw.githubusercontent.com/cesarsgw/site-/data/cyber-counter.json doit contenir `"ok": true`.
 
 ## Dépannage
 
