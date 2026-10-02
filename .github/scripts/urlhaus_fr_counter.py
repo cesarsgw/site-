@@ -6,7 +6,7 @@ from datetime import datetime, timedelta, timezone
 
 FEED = os.environ.get("URLHAUS_FEED", "https://urlhaus.abuse.ch/feeds/country/FR/")
 OUT = sys.argv[1] if len(sys.argv) > 1 else "cyber-counter.json"
-COLS = ["id", "dateadded", "url", "url_status", "last_online", "threat", "tags", "urlhaus_link", "reporter"]
+COLS = ["dateadded", "url", "url_status", "threat", "host", "ip", "asn", "country"]
 
 
 def write(data):
@@ -39,12 +39,10 @@ print("\n".join([x for x in _l if x.startswith("#")][-6:] + [x for x in _l if no
 rows = [r for r in csv.reader(io.StringIO("\n".join(l for l in raw.splitlines() if l and not l.startswith("#")))) if r]
 if not rows:
     fail("flux_vide")
-if rows[0][0].strip().lower() in ("id", '"id"'):
-    rows = rows[1:]
-if not rows or len(rows[0]) < 4:
+if not rows or len(rows[0]) < 3:
     fail("format_inattendu")
 
-statuses = {r[3].strip().lower() for r in rows if len(r) > 3}
+statuses = {r[2].strip().lower() for r in rows if len(r) > 2}
 print("statuts vus:", sorted(statuses)[:10], "| lignes:", len(rows))
 if not statuses & {"online", "offline"}:
     fail("format_inattendu")
