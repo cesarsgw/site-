@@ -33,12 +33,19 @@ except urllib.error.HTTPError as e:
 except Exception:
     fail("reseau")
 
+print("--- apercu flux (5 premieres lignes) ---")
+print("\n".join(raw.splitlines()[:5])[:1500])
 rows = [r for r in csv.reader(io.StringIO("\n".join(l for l in raw.splitlines() if l and not l.startswith("#")))) if r]
 if not rows:
     fail("flux_vide")
 if rows[0][0].strip().lower() in ("id", '"id"'):
     rows = rows[1:]
 if not rows or len(rows[0]) < 4:
+    fail("format_inattendu")
+
+statuses = {r[3].strip().lower() for r in rows if len(r) > 3}
+print("statuts vus:", sorted(statuses)[:10], "| lignes:", len(rows))
+if not statuses & {"online", "offline"}:
     fail("format_inattendu")
 
 now = datetime.now(timezone.utc)
