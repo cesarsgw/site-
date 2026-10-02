@@ -68,7 +68,7 @@ Adapter les URL si la page d'accueil du site n'est pas servie à la racine.
 
 ## 5. Brancher le site
 
-Dans `site/MGC_page_principale.html` et `site/en/home.html`, remplacer :
+Dans `site/index.html` et `site/en/home.html`, remplacer :
 
 ```html
 <form class="newsletter-form" id="newsletterForm" data-endpoint="" novalidate>
@@ -117,7 +117,7 @@ En cas d'échec : Cloudflare → Worker → *Logs*. Les messages commencent par 
 
 | Fichier | Rôle |
 |---|---|
-| `site/MGC_page_principale.html`, `site/en/home.html` | Bloc newsletter (avant le pied de page) + script |
+| `site/index.html`, `site/en/home.html` | Bloc newsletter (avant le pied de page) + script |
 | `site/newsletter.js` | Validation, envoi, messages FR/EN, retour du double opt-in |
 | `site/styles.css` | Styles du bloc newsletter |
 | `site/mentions_legales.html`, `site/en/legal-notice.html` | Traitement « newsletter » ajouté en section 3 |

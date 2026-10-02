@@ -63,7 +63,7 @@ Header du site : « MENACES ACTIVES · FR  1 234 »
    - Valeur : la clé
 3. **Fusionner dans `main`** : GitHub n'exécute les tâches planifiées que sur la branche par défaut.
 4. **Premier lancement** : onglet *Actions* → « Compteur menaces (URLhaus FR) » → *Run workflow*.
-5. **Vérifier** : https://raw.githubusercontent.com/cesarsgw/SITE-PRINCIPALE/data/cyber-counter.json doit contenir `"ok": true`.
+5. **Vérifier** : https://raw.githubusercontent.com/cesarsgw/site-/data/cyber-counter.json doit contenir `"ok": true`.
 
 ## Dépannage
 
@@ -91,6 +91,6 @@ Si le JSON contient `"ok": false`, le champ `error` indique la cause :
 
 - `site/threat-counter.js` : affichage, relecture toutes les 45 s, animation, états d'erreur.
 - `site/styles.css` : bloc « Compteur Menaces actives · FR ».
-- `site/MGC_page_principale.html`, `site/en/home.html` : compteur dans le header, entre Confidentialité et Nous contacter.
+- `site/index.html`, `site/en/home.html` : compteur dans le header, entre Confidentialité et Nous contacter.
 - `.github/workflows/compteur-menaces.yml` : tâche planifiée toutes les 15 min.
 - `.github/scripts/urlhaus_fr_counter.py` : téléchargement et comptage.
