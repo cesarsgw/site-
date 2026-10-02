@@ -91,6 +91,6 @@ Si le JSON contient `"ok": false`, le champ `error` indique la cause :
 
 - `site/threat-counter.js` : affichage, relecture toutes les 45 s, animation, états d'erreur.
 - `site/styles.css` : bloc « Compteur Menaces actives · FR ».
-- `site/MGC_page_principale.html`, `site/en/home.html` : compteur dans le header, entre Confidentialité et Nous contacter.
+- `site/index.html`, `site/en/home.html` : compteur dans le header, entre Confidentialité et Nous contacter.
 - `.github/workflows/compteur-menaces.yml` : tâche planifiée toutes les 15 min.
 - `.github/scripts/urlhaus_fr_counter.py` : téléchargement et comptage.
