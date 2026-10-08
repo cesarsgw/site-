@@ -1,4 +1,4 @@
-// Inscription newsletter MGC (Brevo, double opt-in).
+// Inscription newsletter MGC SAS (Brevo, double opt-in).
 // Le formulaire n'envoie l'adresse qu'à l'API newsletter (data-endpoint) ; aucune clé Brevo côté navigateur.
 (function(){
   const form = document.getElementById('newsletterForm');
@@ -13,8 +13,8 @@
       invalid: "Cette adresse email n'est pas valide.",
       consent: 'Merci de cocher la case pour accepter de recevoir la newsletter.',
       pending: "Merci ! Un email de confirmation vient de vous être envoyé. Cliquez sur le lien qu'il contient pour valider votre inscription.",
-      already: 'Cette adresse est déjà inscrite à la newsletter MGC.',
-      confirmed: 'Votre inscription est confirmée. Bienvenue dans la newsletter MGC !',
+      already: 'Cette adresse est déjà inscrite à la newsletter MGC SAS.',
+      confirmed: 'Votre inscription est confirmée. Bienvenue dans la newsletter MGC SAS !',
       unavailable: "L'inscription à la newsletter est momentanément indisponible. Merci de réessayer plus tard.",
       error: "L'inscription a échoué. Merci de réessayer dans quelques instants."
     },
@@ -24,8 +24,8 @@
       invalid: 'This email address is not valid.',
       consent: 'Please tick the box to agree to receive the newsletter.',
       pending: 'Thank you! A confirmation email has just been sent. Click the link inside to confirm your subscription.',
-      already: 'This address is already subscribed to the MGC newsletter.',
-      confirmed: 'Your subscription is confirmed. Welcome to the MGC newsletter!',
+      already: 'This address is already subscribed to the MGC SAS newsletter.',
+      confirmed: 'Your subscription is confirmed. Welcome to the MGC SAS newsletter!',
       unavailable: 'Newsletter sign-up is temporarily unavailable. Please try again later.',
       error: 'Sign-up failed. Please try again in a few moments.'
     }
