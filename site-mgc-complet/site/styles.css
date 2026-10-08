@@ -1351,3 +1351,17 @@ html:not([data-theme="dark"]) .subpage header .back:hover{ color: var(--signal);
 @media (max-width: 860px){
   html:not([data-theme="dark"]) #page-home .nav-links{ background: #fff; border-bottom: 1px solid var(--line); box-shadow: 0 12px 22px rgba(16,21,27,0.10); }
 }
+
+#page-home .gov-intro{ max-width: 75ch; color: var(--steel); font-size: 16px; margin-bottom: 32px; }
+#page-home .gov-grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+#page-home .gov-card{ border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; transition: background 0.2s ease; }
+#page-home .gov-card:hover{ background: var(--paper-2); }
+#page-home .gov-card h3{ font-size: 18px; font-weight: 700; margin: 6px 0 10px; }
+#page-home .gov-card p{ font-size: 14px; color: var(--steel); }
+#page-home .gov-quote{ margin: 40px 0 0; padding: 32px; border-left: 3px solid var(--signal); background: var(--paper-2); border-radius: var(--radius); }
+#page-home .gov-quote blockquote{ margin: 12px 0 18px; }
+#page-home .gov-quote blockquote p{ font-size: 15px; color: var(--steel); margin-bottom: 12px; max-width: 75ch; }
+#page-home .gov-quote .gov-quote-lead{ font-size: 20px; font-weight: 700; color: inherit; }
+#page-home .gov-quote-by strong{ display: block; font-size: 16px; }
+#page-home .gov-quote-by span{ font-size: 13px; color: var(--steel); }
+@media (max-width: 860px){ #page-home .gov-grid{ grid-template-columns: 1fr; } #page-home .gov-quote{ padding: 24px; } }

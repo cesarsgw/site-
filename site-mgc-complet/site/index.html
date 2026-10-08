@@ -261,56 +261,44 @@
 <section class="section" id="equipe">
   <div class="wrap">
     <div class="section-head">
-      <h2>Une gouvernance dirigée par l'expérience.</h2>
+      <h2>Gouvernance &amp; Leadership.</h2>
     </div>
 
-    <div class="team-list">
-      <div class="team-row">
-        <div class="team-avatar"><img id="imgTeamToso" src="images/team-cristiano-toso.jpg" width="160" height="200" alt="Cristiano Toso" loading="lazy"></div>
-        <div class="team-id">
-          <span class="team-role">PRÉSIDENCE</span>
-          <h3>Cristiano Toso</h3>
-        </div>
-        <p>Président. Définit la stratégie à long terme et la gouvernance du groupe. Expert en sécurité.</p>
+    <p class="gov-intro">Chez MGC SAS, notre force repose sur l'excellence de nos experts, la complémentarité de leurs compétences et une vision stratégique commune. Notre organisation réunit des professionnels de haut niveau issus des univers de la cybersécurité, du renseignement, de la défense, de l'intelligence artificielle et des technologies souveraines.</p>
+
+    <div class="gov-grid">
+      <div class="gov-card">
+        <span class="team-role">01</span>
+        <h3>Une expertise rare et reconnue</h3>
+        <p>Nos équipes s'appuient sur des experts qualifiés PASSI, disposant de spécialisations particulièrement recherchées, notamment en PACS, ISO/IEC 42001 (gouvernance de l'intelligence artificielle), ISO 27001 et protection des infrastructures critiques. Cette concentration de compétences techniques et stratégiques constitue un véritable facteur de différenciation.</p>
       </div>
-      <div class="team-row">
-        <div class="team-avatar"><img id="imgTeamBroc" src="images/team-arthur-broc.jpg" width="160" height="200" alt="Arthur Broc" loading="lazy"></div>
-        <div class="team-id">
-          <span class="team-role">DIRECTION GÉNÉRALE</span>
-          <h3>Arthur Broc</h3>
-        </div>
-        <p>Directeur général. Pilote l'exécution opérationnelle en France : certifications, projets et gestion des risques. Plus de 20 ans d'expérience, dont des postes de direction chez Microsoft, Fujitsu et dans l'écosystème Thales.</p>
+      <div class="gov-card">
+        <span class="team-role">02</span>
+        <h3>Un comité stratégique d'exception</h3>
+        <p>Notre Comité stratégique rassemble des personnalités aux parcours internationaux, apportant une expertise de premier plan en matière de défense, de cybersécurité, de souveraineté, de droit international et de géopolitique.</p>
       </div>
-      <div class="team-row">
-        <div class="team-avatar"><img id="imgTeamOueidat" src="images/team-mounif-oueidat.jpg" width="160" height="200" alt="Mounif Oueidat" loading="lazy"></div>
-        <div class="team-id">
-          <span class="team-role">COMITÉ STRATÉGIQUE</span>
-          <h3>Mounif Oueidat</h3>
-        </div>
-        <p>Directeur du comité stratégique, en charge de l'opérationnel à l'étranger. Avocat trilingue et ingénieur, spécialisé en règlement des différends internationaux.</p>
-      </div>
-      <div class="team-row">
-        <div class="team-avatar"><img id="imgTeamLethiec" src="images/team-yves-lethiec.jpg" width="160" height="200" alt="Yves LeThiec" loading="lazy"></div>
-        <div class="team-id">
-          <span class="team-role">CONSEILLER</span>
-          <h3>Yves LeThiec</h3>
-        </div>
-        <p>Conseiller. Ancien sous-directeur adjoint à l'ANSSI, ingénieur Télécom ParisTech. Expert reconnu en cyberdéfense et sécurité des infrastructures critiques.</p>
-      </div>
-      <div class="team-row">
-        <div class="team-avatar"><img id="imgTeamGoldenstein" src="images/team-sophia-goldenstein.jpg" width="160" height="200" alt="Sophia Goldenstein" loading="lazy"></div>
-        <div class="team-id">
-          <span class="team-role">CONSEILLÈRE</span>
-          <h3>Sophia Goldenstein</h3>
-        </div>
-        <p>Conseillère. Apporte un regard indépendant sur la gouvernance, la gestion de réputation, la communication de crise et les relations internationales.</p>
+      <div class="gov-card">
+        <span class="team-role">03</span>
+        <h3>Des advisors internationaux</h3>
+        <p>Nos conseillers enrichissent notre vision grâce à leur expérience des grandes institutions, des organisations internationales et des environnements stratégiques les plus exigeants.</p>
       </div>
     </div>
+
+    <figure class="gov-quote">
+      <figcaption class="team-role">LES MOTS DU PRÉSIDENT</figcaption>
+      <blockquote>
+        <p class="gov-quote-lead">« L'ambition n'a de valeur que lorsqu'elle devient une discipline quotidienne.</p>
+        <p>J'ai fondé MGC SAS avec une conviction : les grandes réussites naissent de la rencontre entre une vision ambitieuse, des talents d'exception et une détermination sans compromis.</p>
+        <p>Notre ambition n'est pas simplement de suivre les transformations du monde, mais de contribuer à façonner celles de demain.</p>
+        <p>Car ce qui distingue ceux qui rêvent de ceux qui construisent, c'est leur capacité à transformer l'ambition en réalité. »</p>
+      </blockquote>
+      <div class="gov-quote-by"><strong>Cristiano TOSO</strong><span>Président &amp; Fondateur — MGC SAS</span></div>
+    </figure>
 
     <div class="gov-footer">
       <div class="gov-footer-block">
         <div class="info-label">Structure juridique</div>
-        <p>MGC SAS — SAS — RCS Paris 104 930 565. Siège social : 69 Boulevard Haussmann, 75008 Paris.</p>
+        <p>MGC SAS — RCS Paris 104 930 565. Siège social : 69 Boulevard Haussmann, 75008 Paris.</p>
       </div>
       <div class="gov-footer-block">
         <div class="info-label">Références &amp; secteurs</div>
@@ -866,7 +854,7 @@
     onScroll();
 
     if ('IntersectionObserver' in window){
-      const revealTargets = document.querySelectorAll('.service-card, .method-step, .team-row, .guarantee-list li');
+      const revealTargets = document.querySelectorAll('.service-card, .method-step, .gov-card, .gov-quote, .guarantee-list li');
       revealTargets.forEach(el => el.classList.add('reveal'));
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {

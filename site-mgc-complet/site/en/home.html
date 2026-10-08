@@ -259,56 +259,44 @@
 <section class="section" id="equipe">
   <div class="wrap">
     <div class="section-head">
-      <h2>Governance led by experience.</h2>
+      <h2>Governance &amp; Leadership.</h2>
     </div>
 
-    <div class="team-list">
-      <div class="team-row">
-        <div class="team-avatar"><img id="imgTeamToso" src="../images/team-cristiano-toso.jpg" width="160" height="200" alt="Cristiano Toso" loading="lazy"></div>
-        <div class="team-id">
-          <span class="team-role">PRESIDENT</span>
-          <h3>Cristiano Toso</h3>
-        </div>
-        <p>President. Sets the group's long-term strategy and governance. Security expert.</p>
+    <p class="gov-intro">At MGC SAS, our strength rests on the excellence of our experts, the complementarity of their skills and a shared strategic vision. Our organisation brings together top-level professionals from cybersecurity, intelligence, defence, artificial intelligence and sovereign technologies.</p>
+
+    <div class="gov-grid">
+      <div class="gov-card">
+        <span class="team-role">01</span>
+        <h3>Rare, recognised expertise</h3>
+        <p>Our teams rely on PASSI-qualified experts with highly sought-after specialisations, notably in PACS, ISO/IEC 42001 (AI governance), ISO 27001 and critical infrastructure protection. This concentration of technical and strategic skills is a genuine differentiator.</p>
       </div>
-      <div class="team-row">
-        <div class="team-avatar"><img id="imgTeamBroc" src="../images/team-arthur-broc.jpg" width="160" height="200" alt="Arthur Broc" loading="lazy"></div>
-        <div class="team-id">
-          <span class="team-role">MANAGING DIRECTOR</span>
-          <h3>Arthur Broc</h3>
-        </div>
-        <p>Managing Director. Leads operational execution in France: certifications, projects and risk management. Over 20 years of experience, including leadership roles at Microsoft, Fujitsu and within the Thales ecosystem.</p>
+      <div class="gov-card">
+        <span class="team-role">02</span>
+        <h3>An exceptional strategic committee</h3>
+        <p>Our Strategic Committee brings together figures with international careers, providing leading expertise in defence, cybersecurity, sovereignty, international law and geopolitics.</p>
       </div>
-      <div class="team-row">
-        <div class="team-avatar"><img id="imgTeamOueidat" src="../images/team-mounif-oueidat.jpg" width="160" height="200" alt="Mounif Oueidat" loading="lazy"></div>
-        <div class="team-id">
-          <span class="team-role">STRATEGIC COMMITTEE</span>
-          <h3>Mounif Oueidat</h3>
-        </div>
-        <p>Head of the Strategic Committee, in charge of operations abroad. Trilingual lawyer and engineer, specialized in international dispute resolution.</p>
-      </div>
-      <div class="team-row">
-        <div class="team-avatar"><img id="imgTeamLethiec" src="../images/team-yves-lethiec.jpg" width="160" height="200" alt="Yves LeThiec" loading="lazy"></div>
-        <div class="team-id">
-          <span class="team-role">ADVISOR</span>
-          <h3>Yves LeThiec</h3>
-        </div>
-        <p>Advisor. Former Deputy Assistant Director at ANSSI, Télécom ParisTech engineer. Recognized expert in cyber defense and critical infrastructure security.</p>
-      </div>
-      <div class="team-row">
-        <div class="team-avatar"><img id="imgTeamGoldenstein" src="../images/team-sophia-goldenstein.jpg" width="160" height="200" alt="Sophia Goldenstein" loading="lazy"></div>
-        <div class="team-id">
-          <span class="team-role">ADVISOR</span>
-          <h3>Sophia Goldenstein</h3>
-        </div>
-        <p>Advisor. Brings an independent perspective on governance, reputation management, crisis communication and international relations.</p>
+      <div class="gov-card">
+        <span class="team-role">03</span>
+        <h3>International advisors</h3>
+        <p>Our advisors enrich our vision through their experience of major institutions, international organisations and the most demanding strategic environments.</p>
       </div>
     </div>
+
+    <figure class="gov-quote">
+      <figcaption class="team-role">WORDS FROM THE PRESIDENT</figcaption>
+      <blockquote>
+        <p class="gov-quote-lead">“Ambition only has value when it becomes a daily discipline.</p>
+        <p>I founded MGC SAS with one conviction: great successes come from the meeting of an ambitious vision, exceptional talent and uncompromising determination.</p>
+        <p>Our ambition is not simply to follow the world's transformations, but to help shape tomorrow's.</p>
+        <p>Because what sets those who dream apart from those who build is their ability to turn ambition into reality.”</p>
+      </blockquote>
+      <div class="gov-quote-by"><strong>Cristiano TOSO</strong><span>President &amp; Founder — MGC SAS</span></div>
+    </figure>
 
     <div class="gov-footer">
       <div class="gov-footer-block">
         <div class="info-label">Legal structure</div>
-        <p>MGC SAS — SAS — RCS Paris 104 930 565. Registered office: 69 Boulevard Haussmann, 75008 Paris.</p>
+        <p>MGC SAS — RCS Paris 104 930 565. Registered office: 69 Boulevard Haussmann, 75008 Paris.</p>
       </div>
       <div class="gov-footer-block">
         <div class="info-label">References &amp; sectors</div>
@@ -861,7 +849,7 @@
     onScroll();
 
     if ('IntersectionObserver' in window){
-      const revealTargets = document.querySelectorAll('.service-card, .method-step, .team-row, .guarantee-list li');
+      const revealTargets = document.querySelectorAll('.service-card, .method-step, .gov-card, .gov-quote, .guarantee-list li');
       revealTargets.forEach(el => el.classList.add('reveal'));
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
