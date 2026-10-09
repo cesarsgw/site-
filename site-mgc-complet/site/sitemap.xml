@@ -49,16 +49,16 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.mgc-paris.fr/projets-sensibles.html</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.mgc-paris.fr/projets-sensibles.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.mgc-paris.fr/en/sensitive-projects.html"/>
+    <loc>https://www.mgc-paris.fr/osint-intelligence.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.mgc-paris.fr/osint-intelligence.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mgc-paris.fr/en/osint-intelligence.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.mgc-paris.fr/en/sensitive-projects.html</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.mgc-paris.fr/projets-sensibles.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.mgc-paris.fr/en/sensitive-projects.html"/>
+    <loc>https://www.mgc-paris.fr/en/osint-intelligence.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.mgc-paris.fr/osint-intelligence.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mgc-paris.fr/en/osint-intelligence.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
