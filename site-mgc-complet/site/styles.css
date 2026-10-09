@@ -1302,3 +1302,34 @@ html{ scroll-behavior: auto; }
 @media (prefers-reduced-motion: reduce){
   #page-404 .error-code, #page-404 .error-eyebrow, #page-404 h1, #page-404 .lead, #page-404 .error-ctas, #page-404 .quick-links{ opacity:1 !important; transform:none !important; animation:none !important; }
 }
+
+/* ===== Mode clair : bandeau du haut blanc ===== */
+:root:not([data-theme="dark"]) #page-home header{
+  background: rgba(255,255,255,0.96);
+  border-bottom: 1px solid var(--line);
+}
+:root:not([data-theme="dark"]) #page-home header.scrolled{ box-shadow: 0 8px 22px rgba(10,18,32,0.10); }
+:root:not([data-theme="dark"]) #page-home .nav-links a{ color: var(--steel); }
+:root:not([data-theme="dark"]) #page-home .nav-links a:hover{ color: var(--ink-text); }
+:root:not([data-theme="dark"]) #page-home .nav-links a.btn-primary{ color: #fff; }
+:root:not([data-theme="dark"]) #page-home .logo-badge{ box-shadow: 0 0 0 1px var(--line); }
+:root:not([data-theme="dark"]) #page-home .nav-toggle,
+:root:not([data-theme="dark"]) #page-home .theme-toggle,
+:root:not([data-theme="dark"]) #page-home .lang-link,
+:root:not([data-theme="dark"]) #page-home .threat-counter .tc-link{
+  border-color: var(--line);
+  color: var(--ink-text);
+}
+:root:not([data-theme="dark"]) #page-home .threat-counter .tc-value{ color: var(--ink-text); }
+:root:not([data-theme="dark"]) #page-home .tc-label{ color: var(--steel); }
+:root:not([data-theme="dark"]) #page-home .tc-icon{ color: var(--signal); }
+@media (max-width: 860px){
+  :root:not([data-theme="dark"]) #page-home .nav-links{ background: #fff; border-bottom: 1px solid var(--line); }
+}
+:root:not([data-theme="dark"]) .subpage header{ background:#fff; border-bottom:1px solid var(--line); }
+:root:not([data-theme="dark"]) .subpage header.scrolled{ box-shadow:0 6px 20px rgba(10,18,32,0.10); }
+:root:not([data-theme="dark"]) .subpage .flag-wave{ display:none; }
+:root:not([data-theme="dark"]) .subpage header .back,
+:root:not([data-theme="dark"]) .subpage header .lang-link,
+:root:not([data-theme="dark"]) .subpage .theme-toggle{ color: var(--ink-text); border-color: var(--line); }
+:root:not([data-theme="dark"]) .subpage .logo-badge{ box-shadow: 0 0 0 1px var(--line); }
