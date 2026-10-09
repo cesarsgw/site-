@@ -211,13 +211,14 @@
             <path d="M21.5 20 V17 C21.5 15.3 22.9 14 24.5 14 C26.1 14 27.5 15.3 27.5 17 V20" stroke-width="1.4"></path>
           </svg>
         </div>
-        <h3>Gestion de projets sensibles</h3>
-        <p>Nous pilotons vos projets à enjeux critiques avec la rigueur, la discrétion et la traçabilité qu'ils exigent.</p>
+        <h3>Projets sensibles</h3>
+        <p>Conseil, ingénierie et prestations de services en renseignement technologique, analyse de données et systèmes électroniques et de communication, en France et à l'étranger.</p>
         <ul class="service-list">
-          <li>Chefs de projet habilités</li>
-          <li>Cloisonnement des équipes</li>
-          <li>Traçabilité documentaire</li>
-          <li>Continuité d'activité</li>
+          <li>Veille stratégique</li>
+          <li>Investigation numérique</li>
+          <li>Expertise en informatique légale</li>
+          <li>Analyse de données</li>
+          <li>OSINT &amp; Intelligence</li>
         </ul>
       </a>
 
@@ -409,6 +410,7 @@
 
     <div class="contact-grid">
       <form id="contactForm" novalidate>
+        <input type="text" name="_gotcha" id="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <input type="hidden" name="_subject" value="Nouvelle demande — site MGC">
         <div class="field-row">
           <div class="field">
@@ -719,6 +721,28 @@
     } catch (err) { /* stockage indisponible : on laisse simplement passer */ }
   }
 
+  // Anti-spam renforcé : verrou anti double-envoi, délai minimum après chargement,
+  // pot de miel, délai global entre deux envois et plafond horaire.
+  const PAGE_LOADED_AT = Date.now();
+  const MIN_FILL_MS = 4000;
+  const GLOBAL_DELAY_MS = 60 * 1000;
+  const MAX_PER_HOUR = 3;
+  const GLOBAL_KEY = 'mgc_contact_log';
+  let contactSending = false;
+
+  function getGlobalLog(){
+    try {
+      const log = JSON.parse(localStorage.getItem(GLOBAL_KEY) || '[]');
+      return log.filter(t => Date.now() - t < 3600000);
+    } catch (err) { return []; }
+  }
+  function recordGlobal(){
+    try {
+      const log = getGlobalLog(); log.push(Date.now());
+      localStorage.setItem(GLOBAL_KEY, JSON.stringify(log));
+    } catch (err) {}
+  }
+
   // Validation des champs
   function setFieldError(fieldEl, errorEl, message){
     fieldEl.closest('.field').classList.add('invalid');
@@ -788,6 +812,24 @@
 
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (contactSending) return;
+    if (contactForm.elements['_gotcha'].value) return; // robot : on ignore en silence
+    if (Date.now() - PAGE_LOADED_AT < MIN_FILL_MS) {
+      contactStatus.textContent = "Merci de patienter quelques secondes avant d'envoyer.";
+      contactStatus.style.color = "var(--brand-red)";
+      return;
+    }
+    const gLog = getGlobalLog();
+    if (gLog.length && Date.now() - gLog[gLog.length - 1] < GLOBAL_DELAY_MS) {
+      contactStatus.textContent = "Une demande vient d'être envoyée. Merci de patienter 1 minute.";
+      contactStatus.style.color = "var(--brand-red)";
+      return;
+    }
+    if (gLog.length >= MAX_PER_HOUR) {
+      contactStatus.textContent = "Trop de demandes envoyées. Merci de réessayer plus tard ou de nous contacter par email.";
+      contactStatus.style.color = "var(--brand-red)";
+      return;
+    }
 
     if (FORMSPREE_ID === "FORMSPREE_ID") {
       contactStatus.textContent = "Formulaire non encore connecté — identifiant Formspree à renseigner.";
@@ -810,6 +852,7 @@
       return;
     }
 
+    contactSending = true;
     contactBtn.disabled = true;
     contactBtn.textContent = "Envoi en cours…";
     contactStatus.textContent = "";
@@ -823,6 +866,7 @@
 
       if (response.ok) {
         recordContactSubmission(emailValue);
+        recordGlobal();
         contactForm.reset();
         contactStatus.textContent = "Merci, votre demande a bien été envoyée. Nous revenons vers vous sous 48h.";
         contactStatus.style.color = "#6FA88A";
@@ -835,6 +879,7 @@
       contactStatus.style.color = "var(--signal)";
     }
 
+    contactSending = false;
     contactBtn.disabled = false;
     contactBtn.textContent = "Envoyer la demande";
   });

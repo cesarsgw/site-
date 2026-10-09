@@ -209,13 +209,14 @@
             <path d="M21.5 20 V17 C21.5 15.3 22.9 14 24.5 14 C26.1 14 27.5 15.3 27.5 17 V20" stroke-width="1.4"></path>
           </svg>
         </div>
-        <h3>Sensitive Project Management</h3>
-        <p>We manage your high-stakes projects with the rigor, discretion and traceability they require.</p>
+        <h3>Sensitive Projects</h3>
+        <p>Consulting, engineering and services in technology intelligence, data analysis, and electronic and communication systems, in France and abroad.</p>
         <ul class="service-list">
-          <li>Cleared project managers</li>
-          <li>Team compartmentalization</li>
-          <li>Documented traceability</li>
-          <li>Business continuity</li>
+          <li>Strategic monitoring</li>
+          <li>Digital investigation</li>
+          <li>Digital forensics expertise</li>
+          <li>Data analysis</li>
+          <li>OSINT &amp; Intelligence</li>
         </ul>
       </a>
 
@@ -407,6 +408,7 @@
 
     <div class="contact-grid">
       <form id="contactForm" novalidate>
+        <input type="text" name="_gotcha" id="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <input type="hidden" name="_subject" value="New request — MGC website (EN)">
         <div class="field-row">
           <div class="field">
@@ -714,6 +716,28 @@
     } catch (err) { /* storage unavailable: we simply let it through */ }
   }
 
+  // Anti-spam renforcé : verrou anti double-envoi, délai minimum après chargement,
+  // pot de miel, délai global entre deux envois et plafond horaire.
+  const PAGE_LOADED_AT = Date.now();
+  const MIN_FILL_MS = 4000;
+  const GLOBAL_DELAY_MS = 60 * 1000;
+  const MAX_PER_HOUR = 3;
+  const GLOBAL_KEY = 'mgc_contact_log';
+  let contactSending = false;
+
+  function getGlobalLog(){
+    try {
+      const log = JSON.parse(localStorage.getItem(GLOBAL_KEY) || '[]');
+      return log.filter(t => Date.now() - t < 3600000);
+    } catch (err) { return []; }
+  }
+  function recordGlobal(){
+    try {
+      const log = getGlobalLog(); log.push(Date.now());
+      localStorage.setItem(GLOBAL_KEY, JSON.stringify(log));
+    } catch (err) {}
+  }
+
   // Field validation
   function setFieldError(fieldEl, errorEl, message){
     fieldEl.closest('.field').classList.add('invalid');
@@ -783,6 +807,24 @@
 
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (contactSending) return;
+    if (contactForm.elements['_gotcha'].value) return; // robot : on ignore en silence
+    if (Date.now() - PAGE_LOADED_AT < MIN_FILL_MS) {
+      contactStatus.textContent = "Please wait a few seconds before sending.";
+      contactStatus.style.color = "var(--brand-red)";
+      return;
+    }
+    const gLog = getGlobalLog();
+    if (gLog.length && Date.now() - gLog[gLog.length - 1] < GLOBAL_DELAY_MS) {
+      contactStatus.textContent = "A request was just sent. Please wait 1 minute.";
+      contactStatus.style.color = "var(--brand-red)";
+      return;
+    }
+    if (gLog.length >= MAX_PER_HOUR) {
+      contactStatus.textContent = "Too many requests sent. Please try again later or contact us by email.";
+      contactStatus.style.color = "var(--brand-red)";
+      return;
+    }
 
     if (FORMSPREE_ID === "FORMSPREE_ID") {
       contactStatus.textContent = "Form not yet connected — Formspree ID needs to be set.";
@@ -805,6 +847,7 @@
       return;
     }
 
+    contactSending = true;
     contactBtn.disabled = true;
     contactBtn.textContent = "Sending…";
     contactStatus.textContent = "";
@@ -818,6 +861,7 @@
 
       if (response.ok) {
         recordContactSubmission(emailValue);
+        recordGlobal();
         contactForm.reset();
         contactStatus.textContent = "Thank you, your request has been sent. We'll get back to you within 48 hours.";
         contactStatus.style.color = "#6FA88A";
@@ -830,6 +874,7 @@
       contactStatus.style.color = "var(--signal)";
     }
 
+    contactSending = false;
     contactBtn.disabled = false;
     contactBtn.textContent = "Send request";
   });
