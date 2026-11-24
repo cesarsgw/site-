@@ -5,7 +5,7 @@
 (function(){
   try {
     var stored = localStorage.getItem('mgc_theme');
-    var theme = 'light';
+    var theme = stored || 'dark';
     document.documentElement.setAttribute('data-theme', theme);
   } catch (e) {}
 })();
@@ -69,7 +69,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -85,8 +85,7 @@
       <span class="logo-badge"><img class="logo-img" src="images/logo-mgc.svg" width="698" height="692" alt="MGC SAS Paris"></span>
     </a>
     <nav class="nav-links" id="navLinks">
-      <a href="#" class="nav-home">Accueil</a>
-      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-haspopup="true">Expertises <svg class="chev" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></button><div class="nav-dd-menu"><a href="cybersecurite.html">Cybersécurité</a><a href="videosurveillance.html">Sécurité</a><a href="projets-sensibles.html">Projets sensibles</a></div></div>
+      <a href="#services">Expertises</a>
       <a href="#methode">Méthode</a>
       <a href="#equipe">Gouvernance</a>
       <a href="#ia">IA</a>
@@ -104,7 +103,7 @@
       <a href="#contact" class="btn btn-primary">Nous contacter</a>
     </nav>
     <div class="nav-cta">
-      <a href="en/home.html" class="lang-link" lang="en"><svg class="lang-flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg><span>Français</span><svg class="chev" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg></a>
+      <a href="en/home.html" class="lang-link">EN</a>
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Activer le mode sombre" aria-pressed="false" title="Mode sombre">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
@@ -140,9 +139,8 @@
   </svg>
   <div class="wrap">
     <div class="hero-inner">
-      <div class="hero-eyebrow"><span class="pill-a">Paris · Nice</span><a class="pill-b" href="#services">Voir nos expertises <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 0 1 .02-1.06L11.17 10 7.23 6.29a.75.75 0 1 1 1.04-1.08l4.5 4.25a.75.75 0 0 1 0 1.08l-4.5 4.25a.75.75 0 0 1-1.06-.02Z" clip-rule="evenodd"/></svg></a></div>
+      <div class="hero-eyebrow"><span class="pulse"></span> MGC SAS — Paris · Nice</div>
       <h1>Protéger ce qui ne doit jamais être exposé.</h1>
-      <p class="hero-sub">Experts en cybersécurité, sécurité et projets sensibles</p>
       <p class="lead">MGC SAS accompagne les entreprises dans la protection de leurs systèmes, de leurs sites et de leurs données, avec une approche globale de la cybersécurité et de la vidéoprotection.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btn btn-primary">Demander un audit</a>
@@ -152,41 +150,11 @@
   </div>
 </section>
 
-
-<!-- ===== CERTIFICATIONS ===== -->
-<section class="cert-strip" aria-label="Certifications & cadres de référence">
-  <div class="wrap">
-    <ul>
-      <li>PASSI</li><li>ISO 27001</li><li>ISO 42001</li><li>NIS2</li><li>RGPD</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ===== MOT DU PRÉSIDENT ===== -->
-<section class="quote-band" id="president">
-  <div class="quote-blob quote-blob-a" aria-hidden="true"></div>
-  <div class="quote-blob quote-blob-b" aria-hidden="true"></div>
-  <div class="wrap">
-    <figure class="gov-quote">
-      <figcaption class="team-role">LE MOT DU PRÉSIDENT</figcaption>
-      <blockquote>
-        <p class="gov-quote-lead">« L'ambition n'a de valeur que lorsqu'elle devient une discipline quotidienne. »</p>
-        <p>« J'ai fondé MGC SAS avec une conviction : les grandes réussites naissent de la rencontre entre une vision ambitieuse, des talents d'exception et une détermination sans compromis.</p>
-        <p>Notre ambition n'est pas simplement de suivre les transformations du monde, mais de contribuer à façonner celles de demain.</p>
-        <p>Car ce qui distingue ceux qui rêvent de ceux qui construisent, c'est leur capacité à transformer l'ambition en réalité. »</p>
-      </blockquote>
-      <div class="gov-quote-by"><strong>Cristiano TOSO</strong><span>Président &amp; Fondateur — MGC SAS</span></div>
-    </figure>
-  </div>
-</section>
-
 <!-- ===== SERVICES ===== -->
 <section class="section" id="services">
   <div class="wrap">
     <div class="section-head">
-      <p class="kicker">Nos expertises</p>
       <h2>Trois expertises, une même exigence.</h2>
-      <p class="section-sub">MGC SAS, votre partenaire en cybersécurité et sécurité.</p>
     </div>
 
     <div class="services-grid">
@@ -252,15 +220,6 @@
         </ul>
       </a>
 
-      <!-- Intelligence artificielle -->
-      <a class="service-card" href="#ia">
-        <div class="service-icon">
-          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="12" width="24" height="24" rx="3"></rect><rect x="19" y="19" width="10" height="10" rx="1"></rect><path d="M18 6v6M24 6v6M30 6v6M18 36v6M24 36v6M30 36v6M6 18h6M6 24h6M6 30h6M36 18h6M36 24h6M36 30h6"></path></svg>
-        </div>
-        <h3>Intelligence artificielle</h3>
-        <p>Reconnaissance de plaques, analyse d'images et supervision augmentée, toujours sous contrôle humain.</p>
-      </a>
-
     </div>
   </div>
 </section>
@@ -323,6 +282,16 @@
       </div>
     </div>
 
+    <figure class="gov-quote">
+      <figcaption class="team-role">LE MOT DU PRÉSIDENT</figcaption>
+      <blockquote>
+        <p class="gov-quote-lead">« L'ambition n'a de valeur que lorsqu'elle devient une discipline quotidienne. »</p>
+        <p>« J'ai fondé MGC SAS avec une conviction : les grandes réussites naissent de la rencontre entre une vision ambitieuse, des talents d'exception et une détermination sans compromis.</p>
+        <p>Notre ambition n'est pas simplement de suivre les transformations du monde, mais de contribuer à façonner celles de demain.</p>
+        <p>Car ce qui distingue ceux qui rêvent de ceux qui construisent, c'est leur capacité à transformer l'ambition en réalité. »</p>
+      </blockquote>
+      <div class="gov-quote-by"><strong>Cristiano TOSO</strong><span>Président &amp; Fondateur — MGC SAS</span></div>
+    </figure>
 
     <div class="gov-footer">
       <div class="gov-footer-block">
@@ -871,5 +840,4 @@
 
 <script src="threat-counter.js" defer></script>
 
-<a class="float-contact" href="#contact">Contactez-nous</a>
 </body></html>
