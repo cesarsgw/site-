@@ -6,7 +6,7 @@
 (function(){
   try {
     var stored = localStorage.getItem('mgc_theme');
-    var theme = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    var theme = stored || 'dark';
     document.documentElement.setAttribute('data-theme', theme);
   } catch (e) {}
 })();

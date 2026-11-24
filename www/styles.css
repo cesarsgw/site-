@@ -1260,3 +1260,48 @@ html:not([data-theme="dark"]) .subpage header .back:hover{ color: var(--accent-i
 #page-home .gov-quote-by strong{ display: block; font-size: 16px; }
 #page-home .gov-quote-by span{ font-size: 13px; color: var(--steel); }
 @media (max-width: 860px){ #page-home .gov-grid{ grid-template-columns: 1fr; } #page-home .gov-quote{ padding: 24px; } }
+
+/* ===== Thème « présentation » : fonds, cartes et encarts comme dans le PowerPoint ===== */
+html[data-theme="dark"]{
+  --paper: #212326;     /* fond des diapos */
+  --paper-2: #13171B;   /* sections alternées, plus profond */
+  --card: #404245;      /* cartes grises */
+  --ink: #13171B;
+  --line: color-mix(in srgb, #FFFFFF 14%, transparent);
+}
+html[data-theme="dark"] #page-home .services-grid,
+html[data-theme="dark"] #page-home .guarantee-list{ background: transparent; border: 0; gap: 16px; }
+html[data-theme="dark"] #page-home .service-card,
+html[data-theme="dark"] #page-home .gov-card,
+html[data-theme="dark"] #page-home .info-block,
+html[data-theme="dark"] #page-home .guarantee-list li,
+html[data-theme="dark"] .subpage .deliv,
+html[data-theme="dark"] .subpage .stat,
+html[data-theme="dark"] #page-404 .ql-grid a{ background: var(--card); border: 0; border-radius: 2px; }
+html[data-theme="dark"] #page-home .service-card:hover,
+html[data-theme="dark"] #page-home .gov-card:hover{ background: color-mix(in srgb, #404245 85%, #FFFFFF); }
+html[data-theme="dark"] #page-home .section-alt{ background: var(--paper-2); }
+html[data-theme="dark"] #page-home .method-step{ background: var(--card); border-top: 0; padding: 22px; border-radius: 2px; }
+html[data-theme="dark"] #page-home .field input,
+html[data-theme="dark"] #page-home .field select,
+html[data-theme="dark"] #page-home .field textarea{ background: var(--card); border-color: transparent; }
+/* encarts bronze (comme les bandeaux de la présentation) */
+html[data-theme="dark"] #page-home .gov-quote,
+html[data-theme="dark"] .subpage .cta,
+html[data-theme="dark"] #page-home .gov-footer{ background: #5F3420; border-left: 3px solid #84482D; border-radius: 2px; }
+html[data-theme="dark"] #page-home .gov-quote blockquote p,
+html[data-theme="dark"] #page-home .gov-quote-by span,
+html[data-theme="dark"] #page-home .gov-footer p,
+html[data-theme="dark"] .subpage .cta p{ color: #FFFFFF; }
+html[data-theme="dark"] #page-home .gov-footer{ border: 0; }
+html[data-theme="dark"] #page-home .gov-footer-block{ background: transparent; border-color: color-mix(in srgb, #FFFFFF 20%, transparent); }
+html[data-theme="dark"] #page-home .btn-primary,
+html[data-theme="dark"] .subpage .cta a.btn{ background: #84482D; }
+html[data-theme="dark"] #page-home .btn-primary:hover{ background: #5F3420; }
+html[data-theme="dark"] .subpage .cta a.btn{ background: #391F13; }
+html[data-theme="dark"] .subpage .cta a.btn:hover{ background: #13171B; }
+html[data-theme="dark"] .team-role,
+html[data-theme="dark"] .guarantee-list .mark,
+html[data-theme="dark"] #page-home .method-step .step-num{ color: #FFFFFF; opacity: .75; }
+html[data-theme="dark"] #page-home header,
+html[data-theme="dark"] .subpage header{ background: #13171B; border-bottom: 1px solid color-mix(in srgb, #FFFFFF 12%, transparent); }
