@@ -1316,3 +1316,27 @@ html[data-theme="dark"] #page-home .offices-strip{ background: color-mix(in srgb
 html[data-theme="dark"] #page-home .cookie-banner, html[data-theme="dark"] #cookieBanner{ background: #13171B; }
 html[data-theme="dark"] #page-home .gov-card, html[data-theme="dark"] #page-home .service-card, html[data-theme="dark"] #page-home .method-step{ border-top: 2px solid #84482D; }
 html[data-theme="dark"] .subpage .deliv{ border-top: 2px solid #84482D; }
+
+/* ===== Angles arrondis sur tous les cadres ===== */
+:root{ --r-card: 16px; --r-ctl: 10px; }
+#page-home{ --radius: var(--r-ctl); }
+/* cartes, blocs, encarts */
+#page-home .service-card, #page-home .gov-card, #page-home .method-step, #page-home .info-block,
+#page-home .guarantee-list li, #page-home .gov-quote, #page-home .gov-footer, #page-home .team-row,
+#page-home .office-chip, #page-home .threat-counter .tc-link, #page-home .tc-tip,
+#page-home .services-grid, #page-home .guarantee-list,
+.subpage .deliv, .subpage .stat, .subpage .cta, .subpage .faq-item, .subpage .tag, .subpage .dp-block,
+#page-legal .dp-block, #page-404 .ql-grid a, #cookieBanner, .cookie-modal{ border-radius: var(--r-card) !important; }
+#page-home .gov-footer-block:first-child{ border-radius: var(--r-card) 0 0 var(--r-card) !important; }
+#page-home .gov-footer-block:last-child{ border-radius: 0 var(--r-card) var(--r-card) 0 !important; }
+/* le conteneur de grille ne doit pas rogner les cartes */
+#page-home .services-grid, #page-home .guarantee-list{ border-radius: 0 !important; }
+/* boutons, champs, contrôles */
+#page-home .btn, .subpage .cta a.btn, .subpage .cta a.btn-ghost, #page-404 .btn-primary, #page-404 .btn-ghost,
+.cookie-btn, #page-home .field input, #page-home .field select, #page-home .field textarea,
+#page-home .lang-link, .subpage .lang-link, #page-home .theme-toggle, .subpage .theme-toggle,
+#page-home .nav-toggle, .subpage .back-to-top, #page-home .back-to-top, .subpage .step .step-num,
+#page-home .service-icon, #page-home .cookie-close{ border-radius: var(--r-ctl) !important; }
+#page-home .logo-badge, .subpage .logo-badge{ border-radius: 8px !important; }
+#page-home .nav-links.open{ border-radius: 0 0 var(--r-card) var(--r-card) !important; }
+@media (max-width: 860px){ #page-home .nav-links{ border-radius: 0 0 var(--r-card) var(--r-card) !important; } }
